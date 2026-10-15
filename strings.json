@@ -1,0 +1,16 @@
+{
+  "config": {
+    "step": {"user": {"title": "Connect Telekom Glasfaser Modem 1", "data": {"host": "ONT IPv4 address"}}},
+    "error": {"cannot_connect": "Could not read ONT status", "invalid_host": "Enter a valid IPv4 or IPv6 address"},
+    "abort": {"already_configured": "This ONT is already configured"}
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  }
+}

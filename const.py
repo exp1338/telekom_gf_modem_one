@@ -1,0 +1,4 @@
+DOMAIN = "telekom_gf_modem_one"
+DEFAULT_HOST = "192.168.100.1"
+SCAN_INTERVAL_SECONDS = 60
+

@@ -1,0 +1,10 @@
+{
+  "domain": "telekom_gf_modem_one",
+  "name": "Telekom Glasfaser Modem 1",
+  "version": "0.3.2",
+  "documentation": "https://www.home-assistant.io/integrations/",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "requirements": []
+}
