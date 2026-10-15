@@ -13,7 +13,12 @@ PLATFORMS = ["sensor"]
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     client = OntClient(async_get_clientsession(hass), entry.data["host"])
-    scan_interval = entry.options.get("scan_interval", SCAN_INTERVAL_SECONDS)
+
+
+
+    # Priorität: Optionen (falls bereits konfiguriert) -> Data (beim Setup) -> Standardwert
+    scan_interval = entry.options.get("scan_interval", entry.data.get("scan_interval", SCAN_INTERVAL_SECONDS))
+
     coordinator = OntCoordinator(hass, client, scan_interval)
     await coordinator.async_config_entry_first_refresh()
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
@@ -35,4 +40,5 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if unloaded:
         hass.data[DOMAIN].pop(entry.entry_id, None)
     return unloaded
+
 

@@ -39,22 +39,31 @@ class TelekomOntConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 else:
                     return self.async_create_entry(
                         title=f"Telekom Glasfaser Modem 1 ({host})",
-                        data={"host": host},
+
+                        data={
+                            "host": host,
+                            "scan_interval": user_input.get("scan_interval", SCAN_INTERVAL_SECONDS)
+                        },
                     )
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
-                {vol.Required("host", default=DEFAULT_HOST): str}
+
+                {
+                    vol.Required("host", default=DEFAULT_HOST): str,
+                    vol.Optional("scan_interval", default=SCAN_INTERVAL_SECONDS): int,
+                }
             ),
             errors=errors,
         )
 
 
 class TelekomOntOptionsFlow(config_entries.OptionsFlow):
-    def __init__(self, config_entry):
-        self.config_entry = config_entry
+    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
+        super().__init__()
 
     async def async_step_init(self, user_input=None):
+        """Manage the options."""
         if user_input is not None:
             return self.async_create_entry(title="", data=user_input)
 
@@ -62,12 +71,13 @@ class TelekomOntOptionsFlow(config_entries.OptionsFlow):
             step_id="init",
             data_schema=vol.Schema(
                 {
-                    vol.Optional(
+                    vol.Required(
                         "scan_interval",
                         default=self.config_entry.options.get(
-                            "scan_interval", SCAN_INTERVAL_SECONDS
+                            "scan_interval",
+                            self.config_entry.data.get("scan_interval", SCAN_INTERVAL_SECONDS),
                         ),
-                    ): vol.All(vol.Coerce(int), vol.Range(min=10))
+                    ): int
                 }
             ),
         )
