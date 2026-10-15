@@ -10,6 +10,27 @@ Diese Home Assistant Integration ermöglicht das Auslesen des Status deines Tele
 4. Klicke auf **Integration hinzufügen** und suche nach "Telekom Glasfaser Modem 1".
 5. Gib die IP-Adresse deines Modems ein (Standard: `192.168.100.1`).
 
+## Features
+
+Diese Integration stellt Sensoren für den Status deines Glasfaser-Modems bereit:
+
+### Sensoren
+*   **Temperatur**: Gerätetemperatur (°C)
+*   **Spannung**: Versorgungsspannung (V)
+*   **CPU-Auslastung**: CPU-Last (%)
+*   **Speicherauslastung**: Arbeitsspeicherauslastung (%)
+*   **Bias-Strom**: Laser-Bias-Strom (mA)
+*   **RX optische Leistung**: Empfangene optische Leistung (dBm)
+*   **TX optische Leistung**: Gesendete optische Leistung (dBm)
+*   **ONT Status**: Status der GPON-Verbindung (z.B. Verbunden, Suche, Initialisierung)
+*   **Router-Zustand**: Interner Status des Routers/Modems
+*   **Firmware-Version**: Installierte Firmware
+*   **Hardware-Revision**: Hardware-Version
+*   **UI-Version**: Version der Benutzeroberfläche
+
+### Weitere Funktionen
+*   **Konfigurierbares Polling**: Anpassbares Abfrageintervall (Standard: 60 Sekunden).
+*   **Diagnosedaten**: Umfangreiche technische Informationen direkt in Home Assistant verfügbar.
 ## Konfiguration
 
 Nach der Installation kannst du das Polling-Intervall anpassen:
@@ -23,3 +44,4 @@ Nach der Installation kannst du das Polling-Intervall anpassen:
 ## Unterstützung
 
 Diese Integration liest die Statusdaten von der Weboberfläche des ONT aus. Stelle sicher, dass dein Home Assistant das Gerät über die angegebene IP-Adresse erreichen kann.
+
