@@ -1,1 +1,10 @@
 /ont_inspect.py
+__pycache__/sensor.cpython-314.pyc
+.gitignore
+.gitignore
+__pycache__/config_flow.cpython-314.pyc
+__pycache__/__init__.cpython-314.pyc
+.gitignore
+__pycache__/coordinator.cpython-314.pyc
+__pycache__/ont_status.cpython-314.pyc
+.gitignore
