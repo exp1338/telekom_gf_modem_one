@@ -8,3 +8,4 @@ __pycache__/__init__.cpython-314.pyc
 __pycache__/coordinator.cpython-314.pyc
 __pycache__/ont_status.cpython-314.pyc
 .gitignore
+__pycache__/const.cpython-314.pyc

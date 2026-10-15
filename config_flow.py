@@ -67,7 +67,7 @@ class TelekomOntOptionsFlow(config_entries.OptionsFlow):
                         default=self.config_entry.options.get(
                             "scan_interval", SCAN_INTERVAL_SECONDS
                         ),
-                    ): int
+                    ): vol.All(vol.Coerce(int), vol.Range(min=10))
                 }
             ),
         )
